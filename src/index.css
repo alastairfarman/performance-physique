@@ -1,0 +1,240 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --blue: #1e90ff;
+  --yellow: #efff16;
+}
+
+* {
+  margin: 0;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+}
+
+.section h1 {
+  font-size: 3rem;
+  background: linear-gradient(
+    to bottom right,
+    var(--blue),
+    rgb(56, 180, 128),
+    var(--yellow)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 2rem;
+}
+
+.section p {
+  margin: 2rem;
+}
+
+.section {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 200;
+}
+
+#logo {
+  height: 100px;
+}
+
+.bullet-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+  gap: 5rem;
+}
+
+.bullet-container div {
+  flex: 1 1 0;
+}
+
+.dark {
+  background-color: rgb(15, 15, 15);
+  /* background: linear-gradient(to bottom right, #06182b, #252618); */
+  color: white;
+}
+
+.light {
+  background-color: rgb(230, 230, 230);
+  color: black;
+}
+
+.large {
+  min-height: 700px;
+}
+
+.medium {
+  min-height: 400px;
+}
+
+.small {
+  min-height: 250px;
+}
+
+.CTA-button {
+  all: unset;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 50px;
+  background: linear-gradient(
+    to bottom right,
+    var(--blue),
+    rgb(56, 180, 128),
+    var(--yellow)
+  );
+  color: white;
+}
+
+.question-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.question-text {
+    font-size: 0.8rem;
+}
+
+.question-options {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  font-weight: 600;}
+
+.question-option {
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 50px;
+  background: linear-gradient(
+    to bottom right,
+    var(--blue),
+    rgb(56, 180, 128),
+    var(--yellow)
+  );
+  background-size: 150%;  
+  color: white;
+}
+
+#calculator-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 10rem;
+  background-color: rgba(255, 255, 255, 1);
+  backdrop-filter: blur(50px);
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+  transition: height 1s;
+  color: black;
+  /* box-shadow: 0px 0px 60px 80px var(--yellow); */
+}
+
+#calculator-wrapper:hover {
+  height: 50vh;
+  transition: height 0.3s;
+}
+
+#calculator-wrapper h1 {
+  font-size: 2rem;
+}
+
+#graph svg {
+  height: 150px;
+  width: auto;
+  transition: all 0.3s;
+}
+
+#calculator-wrapper ul > li,
+button {
+  cursor: pointer;
+}
+
+#results-and-submit-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+#calculator-wrapper:hover #graph svg {
+  height: 350px;
+  width: auto;
+}
+
+#graph {
+  display: flex;
+  align-items: center;
+}
+
+#form-wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+/*animated graph*/
+
+#monday,
+#tuesday,
+#wednesday,
+#thursday,
+#friday,
+#saturday,
+#sunday {
+  transform-origin: 0% 3%;
+  scale: 1 1.2;
+  animation-name: scalebar;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#tuesday {
+  animation-delay: 0.5s;
+}
+
+#wednesday {
+  animation-delay: 0.24s;
+}
+#thursday {
+  animation-delay: 0.65s;
+}
+#friday {
+  animation-delay: 0.89s;
+}
+#saturday {
+  animation-delay: 1.5s;
+}
+.stop1 {
+  stop-color: var(--yellow);
+}
+
+.stop2 {
+  stop-color: rgb(56, 180, 128);
+}
+
+.stop3 {
+  stop-color: var(--blue);
+}
+@keyframes scalebar {
+  from {
+    scale: 1 1.2;
+  }
+
+  to {
+    scale: 1 0.8;
+  }
+}
