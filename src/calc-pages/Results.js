@@ -37,17 +37,19 @@ export default function Results(props) {
   return (
     <>
       <div id="results-and-submit-container">
-        <h3>Your results</h3>
+        <h3>Find out your results and send to recieve plan</h3>
         <div id="graph">
           <div id="data-summary">
-            <div>DEE (Daily Energy Expenditure): {props.DEE}</div>
+            <p>{props.answers.sex}</p>
+            <p>{props.answers.weight}</p>
+            <p>{props.answers.activity}</p>
           </div>
           <Graph answers={props.answers} />
         </div>
         <div id="form-wrapper">
           <form onSubmit={submitForm} action="https://submit-form.com/echo">
             <input
-            placeholder="enter your name"
+              placeholder="enter your name"
               type="text"
               name="name"
               required
@@ -60,7 +62,7 @@ export default function Results(props) {
               }
             />
             <input
-            placeholder="and your email"
+              placeholder="and your email"
               type="email"
               name="email"
               required
@@ -71,7 +73,7 @@ export default function Results(props) {
                 }))
               }
             />
-            <button type="submit">Submit</button>
+            <button type="submit">Take my money</button>
           </form>
         </div>
       </div>

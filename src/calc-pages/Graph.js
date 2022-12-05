@@ -3,10 +3,15 @@ import { calculateBMR, calculateDEE } from "../algo";
 const _ = require("lodash");
 
 export default function Graph(props) {
-  const number = calculateDEE(
-    calculateBMR(props.answers.weight, props.answers.sex),
-    props.answers.activity
-  );
+  // const number = Math.round(
+  //   calculateDEE(
+  //     calculateBMR(props.answers.weight, props.answers.sex),
+  //     props.answers.activity
+  //   )
+  // );
+
+  const textColour = props.dark === true ? "white" : "black";
+  console.log(textColour);
 
   return (
     <>
@@ -284,7 +289,7 @@ export default function Graph(props) {
               strokeDashoffset: 0,
               strokeLinejoin: "miter",
               strokeMiterlimit: 4,
-              fill: "rgb(0,0,0)",
+              fill: `${textColour}`,
               fillRule: "nonzero",
               opacity: 1,
             }}
@@ -317,14 +322,14 @@ export default function Graph(props) {
               strokeDashoffset: 0,
               strokeLinejoin: "miter",
               strokeMiterlimit: 4,
-              fill: "rgb(0,0,0)",
+              fill: `${textColour}`,
               fillRule: "nonzero",
               opacity: 1,
               whiteSpace: "pre",
             }}
           >
             <tspan x="-81.2" y="21.99">
-              {number}
+              {"DEE"}
             </tspan>
           </text>
         </g>

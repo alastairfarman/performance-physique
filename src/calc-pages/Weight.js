@@ -20,16 +20,21 @@ export default function Weight(props) {
   return (
     <>
       <h1>What is your current weight?</h1>
-      <div className="weight-select-container">
+      <div id="weight-select-container">
         <form id="weight" onSubmit={clickHandler}>
           <select name="weightSelect" id="weightType">
             <option value="K">Kilograms</option>
             <option value="lb">Pounds</option>
           </select>
-          <input type="number" id="weightValue" defaultValue="70"></input>
+          <input
+            type="number"
+            id="weightValue"
+            defaultValue="70"
+            step=".1"
+          ></input>
         </form>
-        <button type="submit" form="weight">
-          submit
+        <button type="submit" style={{all: 'unset'}} form="weight">
+          <li className="question-option">Next</li>
         </button>
       </div>
     </>

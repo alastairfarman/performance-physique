@@ -99,13 +99,13 @@
 }
 
 .question-text {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
 
 .question-options {
   display: grid;
-  grid-template-columns: repeat(4, auto);
-  font-weight: 600;}
+  grid-template-columns: repeat(4, 1fr);
+}
 
 .question-option {
   display: flex;
@@ -119,8 +119,9 @@
     rgb(56, 180, 128),
     var(--yellow)
   );
-  background-size: 150%;  
+  background-size: 150%;
   color: white;
+  font-weight: 600;
 }
 
 #calculator-wrapper {
@@ -149,10 +150,31 @@
   font-size: 2rem;
 }
 
+#graph {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
 #graph svg {
   height: 150px;
   width: auto;
   transition: all 0.3s;
+}
+
+#calculator-wrapper:hover #graph svg {
+  height: 250px;
+  width: auto;
+}
+
+#content-graph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#content-graph svg {
+  width: 50vw;
 }
 
 #calculator-wrapper ul > li,
@@ -170,14 +192,25 @@ button {
   gap: 4rem;
 }
 
-#calculator-wrapper:hover #graph svg {
-  height: 350px;
-  width: auto;
+#weight-select-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
 }
 
-#graph {
+#weightType {
+  margin: 1rem;
+}
+
+#weightValue {
+  margin: 1rem;
+}
+
+#data-summary {
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 #form-wrapper form {
