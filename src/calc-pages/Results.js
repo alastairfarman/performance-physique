@@ -38,14 +38,14 @@ export default function Results(props) {
     <>
       <div id="results-and-submit-container">
         <h3>Find out your results and send to recieve plan</h3>
-        <div id="graph">
+        {/* <div id="graph">
           <div id="data-summary">
             <p>{props.answers.sex}</p>
             <p>{props.answers.weight}</p>
             <p>{props.answers.activity}</p>
           </div>
           <Graph answers={props.answers} />
-        </div>
+        </div> */}
         <div id="form-wrapper">
           <form onSubmit={submitForm} action="https://submit-form.com/echo">
             <input

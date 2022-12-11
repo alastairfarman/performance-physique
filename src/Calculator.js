@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, HashRouter, Route } from "react-router-dom";
+import { Routes, HashRouter, Route, useNavigate } from "react-router-dom";
 import Weight from "./calc-pages/Weight";
 import Sex from "./calc-pages/Sex";
 import Results from "./calc-pages/Results";
@@ -20,15 +20,28 @@ export default function Calculator() {
     calculateDEE(calculateBMR(answers.weight, answers.sex), answers.activity)
   );
 
-  let DEE = Math.round(calculateDEE(
-    calculateBMR(answers.weight, answers.sex),
-    answers.activity)
+  let DEE = Math.round(
+    calculateDEE(calculateBMR(answers.weight, answers.sex), answers.activity)
   );
+
+  //navigation//
+  const nav = useNavigate();
+
+  function clickFwd() {
+    nav(1);
+  }
+
+  function clickBack() {
+    nav(-1);
+  }
 
   return (
     <>
       <div id="calculator-wrapper">
-        <HashRouter>
+        <div className="calc-nav">
+        <div onClick={clickBack}>back</div>
+        <div onClick={clickFwd}>fwd</div>
+      </div>
           <Routes>
             <Route index element={<Start />} />
             <Route
@@ -48,7 +61,6 @@ export default function Calculator() {
               element={<Results DEE={DEE} answers={answers} />}
             />
           </Routes>
-        </HashRouter>
       </div>
     </>
   );
