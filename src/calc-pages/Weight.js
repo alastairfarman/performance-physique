@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Weight(props) {
@@ -17,25 +18,47 @@ export default function Weight(props) {
     nav("../Activity");
   }
 
+  props.setcalcPage(3);
+
+  useEffect(() => {
+    if (props.minimised === false) {
+      props.setActiveNavState();
+    }
+  });
+
   return (
     <>
-      <h1>What is your current weight?</h1>
-      <div id="weight-select-container">
-        <form id="weight" onSubmit={clickHandler}>
-          <select name="weightSelect" id="weightType">
-            <option value="K">Kilograms</option>
-            <option value="lb">Pounds</option>
-          </select>
-          <input
-            type="number"
-            id="weightValue"
-            defaultValue="70"
-            step=".1"
-          ></input>
-        </form>
-        <button type="submit" style={{all: 'unset'}} form="weight">
-          <li className="question-option">Next</li>
-        </button>
+      <div className="question-wrapper">
+        <div className="question-input">
+          <h1>What is your current weight?</h1>
+        </div>
+        <div className="question-text">
+          <p>
+            This is how heavy you are. If you stand on a scale this will be the
+            number it shows you. If you don't know this, go find a scale to
+            stand on as it is needed to calculate how much weight you can lose.
+            Alternatively ask a friend to guess how heavy you are.
+          </p>
+        </div>
+      </div>
+      <div className="question-options">
+        <div id="weight-select-container">
+          <form id="weight" onSubmit={clickHandler}>
+            <select name="weightSelect" id="weightType">
+              <option value="K">Kilograms</option>
+              <option value="lb">Pounds</option>
+            </select>
+            <input
+              type="number"
+              id="weightValue"
+              defaultValue="70"
+              step=".1"
+            ></input>
+          </form>
+          <button type="submit" style={{ all: "unset" }} form="weight">
+            <li className="question-option">Next</li>
+          </button>
+        </div>
       </div>
     </>
   );

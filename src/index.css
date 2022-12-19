@@ -3,12 +3,19 @@
 :root {
   --blue: #1e90ff;
   --yellow: #efff16;
+  background-color: rgb(15, 15, 15);
 }
 
 * {
   margin: 0;
   list-style: none;
   font-family: "Poppins", sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section h1 {
@@ -33,7 +40,6 @@
   all: unset;
   -webkit-text-fill-color: rgb(15, 15, 15);
   -webkit-text-stroke: 4px transparent;
-  text-shadow: 0px 0px 800px rgba(30, 144, 255, 0.3);
 }
 .section.light h1 em {
   all: unset;
@@ -59,6 +65,9 @@
 
 #logo {
   height: 100px;
+  margin: 1rem;
+  grid-column-start: 1;
+  grid-column-end: 2;
 }
 
 .bullet-container {
@@ -87,28 +96,61 @@
   width: auto;
 }
 
-.quote-container{
+.quote-container {
   display: flex;
   flex-direction: column;
 }
 
-.quote-container h5{
+.quote-container h5 {
   color: rgba(0, 0, 0, 0.8);
 }
 
-.testimonial-card{
+.testimonial-card {
   background-color: rgba(255, 255, 255, 0.1);
-  width: 300px;
-  height: 400px;
+  min-width: 300px;
+  max-width: 300px;
+  height: 500px;
   border-radius: 3rem;
-  padding: 1rem;
+  box-sizing: border-box;
+  padding: 3rem;
   margin: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: absolute;
+  top: 0;
+  right: -500px;
+  animation: carousel 40s linear 0s;
 }
 
-.testimonial-card em{
+.testimonial-card:hover {
+  background: linear-gradient(to bottom right, #06182b, #252618);
+}
+
+#carousel {
+  position: relative;
+  width: 100vw;
+  height: calc(500px + 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 400;
+  text-align: start;
+  color: white;
+  background-color: black;
+}
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-2400px);
+  }
+}
+
+.testimonial-card em {
   font-weight: 800;
   background: linear-gradient(
     to bottom right,
@@ -179,21 +221,39 @@
     var(--yellow)
   );
   color: white;
+  height: fit-content;
+  align-self: center;
+}
+
+.question-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  animation: fadein 1s ease-in-out 0.3s both;
 }
 
 .question-input {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  padding: 2rem;
 }
 
 .question-text {
   font-size: 0.8rem;
+  width: 100%;
 }
 
 .question-options {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  height: fit-content;
+  width: fit-content;
+  align-self: center;
+  justify-self: start;
+  padding-left: 0;
+  animation: fadein 1s ease-in-out 0.6s both;
 }
 
 .question-option {
@@ -211,39 +271,62 @@
   background-size: 150%;
   color: white;
   font-weight: 600;
+  height: fit-content;
+  width: 150px;
 }
 
 #calculator-wrapper {
+  /* display: none; */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.8);
   align-items: center;
   width: 100vw;
   height: 10rem;
-  background-color: rgba(255, 255, 255, 1);
-  backdrop-filter: blur(50px);
+  backdrop-filter: blur(150px);
   position: fixed;
-  bottom: 0;
+  top: 0;
   z-index: 2;
-  transition: height 1s;
-  color: black;
-}
-
-#calculator-wrapper:hover {
-  height: 50vh;
-  transition: height 0.3s;
+  transition: all 1s;
+  color: white;
+  box-sizing: border-box;
 }
 
 #calculator-wrapper h1 {
   font-size: 2rem;
 }
 
-.calc-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
+#calc-nav {
+  display: none;
+  gap: 0.5rem;
+  margin: 2rem 1rem;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  justify-self: end;
+  height: fit-content;
+}
+
+#calc-container {
+  grid-template-columns: auto auto;
+  grid-template-rows: auto 1fr;
+  margin: 1rem;
   display: flex;
-  gap: 1rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 0px;
+  width: 0px;
+  padding: 1.1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 #calculator-wrapper:hover #graph svg {
@@ -259,7 +342,7 @@ button {
   display: flex;
   flex-direction: row;
   height: 100%;
-  width: 100vw;
+  width: 100%;
   justify-content: center;
   align-items: center;
   gap: 4rem;
@@ -267,18 +350,27 @@ button {
 
 #weight-select-container {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: center;
   align-items: center;
   margin: 1rem;
 }
 
+#weight {
+  display: flex;
+}
+
 #weightType {
   margin: 1rem;
+  border-radius: 1rem;
+  padding: 0.25rem;
 }
 
 #weightValue {
   margin: 1rem;
+  border-radius: 1rem;
+  border: none;
+  padding: 0.25rem;
 }
 
 #data-summary {
@@ -286,9 +378,41 @@ button {
   flex-direction: column;
 }
 
+#form-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 600px;
+  justify-content: center;
+  align-items: center;
+}
 #form-wrapper form {
   display: flex;
   flex-direction: column;
+}
+
+#progress-bar {
+  width: auto;
+  margin: 4.5rem;
+  border: solid 1px white;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  height: 0.4rem;
+  border-radius: 5px;
+  animation: fadein 1s ease-in-out 0.6s both;
+  overflow: hidden;
+}
+
+#progress {
+  width: 0%;
+  height: 20px;
+  background: linear-gradient(
+    to right,
+    var(--blue),
+    rgb(56, 180, 128),
+    var(--yellow)
+  );
+  transition: all 0.5s ease-in;
 }
 
 /*animated graph*/
@@ -356,5 +480,30 @@ button {
 
   .bullet-container {
     flex-direction: column;
+  }
+}
+
+/* section animation */
+
+.section > * {
+  overflow: hidden;
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+.section > .active {
+  transform: translateY(0px);
+  opacity: 100;
+  transition: transform 0.5s ease-out, opacity 0.8s ease-in;
+}
+
+/* question fade in animation */
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

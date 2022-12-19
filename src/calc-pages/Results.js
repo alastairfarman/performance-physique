@@ -32,11 +32,13 @@ export default function Results(props) {
 
   const [formState, setFormState] = useState(initialFormState);
 
-  console.log(formState);
+  console.log("formState:", formState);
+
+  props.setcalcPage(5);
 
   return (
     <>
-      <div id="results-and-submit-container">
+      <div className="question-wrapper" id="results-and-submit-container">
         <h3>Find out your results and send to recieve plan</h3>
         {/* <div id="graph">
           <div id="data-summary">
@@ -46,36 +48,36 @@ export default function Results(props) {
           </div>
           <Graph answers={props.answers} />
         </div> */}
-        <div id="form-wrapper">
-          <form onSubmit={submitForm} action="https://submit-form.com/echo">
-            <input
-              placeholder="enter your name"
-              type="text"
-              name="name"
-              required
-              value={formState.name}
-              onChange={(e) =>
-                setFormState((prevState) => ({
-                  ...prevState,
-                  name: e.target.value,
-                }))
-              }
-            />
-            <input
-              placeholder="and your email"
-              type="email"
-              name="email"
-              required
-              onChange={(e) =>
-                setFormState((prevState) => ({
-                  ...prevState,
-                  email: e.target.value,
-                }))
-              }
-            />
-            <button type="submit">Take my money</button>
-          </form>
-        </div>
+      </div>
+      <div id="form-wrapper">
+        <form onSubmit={submitForm} action="https://submit-form.com/echo">
+          <input
+            placeholder="enter your name"
+            type="text"
+            name="name"
+            required
+            value={formState.name}
+            onChange={(e) =>
+              setFormState((prevState) => ({
+                ...prevState,
+                name: e.target.value,
+              }))
+            }
+          />
+          <input
+            placeholder="and your email"
+            type="email"
+            name="email"
+            required
+            onChange={(e) =>
+              setFormState((prevState) => ({
+                ...prevState,
+                email: e.target.value,
+              }))
+            }
+          />
+          <button type="submit">Take my money</button>
+        </form>
       </div>
     </>
   );

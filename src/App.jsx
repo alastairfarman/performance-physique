@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Calculator from './Calculator';
 import Testimonial from './content/Testimonial';
 import TestimonialCarousel from './content/TestimonialCarousel';
@@ -10,10 +10,41 @@ import DeficitGraph from './content/DeficitGraph';
 import Summation from './content/Summation'
 
 function App() {
+
+
+//content load on scroll//
+useEffect(()=> {
+  let revealItems = [...document.querySelectorAll('section > *')]
+
+  let options = {
+    rootMargin: '-10%',
+    threshold: 0.0
+  }
+  
+  let observer = new IntersectionObserver(showItem,options)
+  
+  let i=0
+
+  function showItem(items){
+    items.forEach(item => {
+      if(item.isIntersecting){
+        setTimeout(function(){
+        item.target.classList.add('active');
+        },50 * i++)
+      }
+    })
+  }
+  
+  revealItems.forEach(item => {
+    observer.observe(item)
+  })
+  
+
+})
+
   return (
     <>
-    <div className='dark'>
-    <img id='logo' src='PP-LOGO-LOCKUP_WHITE.png'alt=''/></div>
+    <Calculator />
     <Title/>
     <Testimonial />
     <What />
@@ -22,7 +53,7 @@ function App() {
     <How />
     <DeficitGraph />
     <Summation />
-    <Calculator />
+  
   </>
   );
 }

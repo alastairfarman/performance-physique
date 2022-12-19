@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Activity(props) {
@@ -9,33 +10,62 @@ export default function Activity(props) {
       ...prevState,
       activity: activityLevel,
     }));
-    nav('../Results');
+    nav("../Results");
   }
+
+  props.setcalcPage(4);
+
+  useEffect(() => {
+    if (props.minimised === false) {
+      props.setActiveNavState();
+    }
+  });
 
   return (
     <>
-    <div className="question-input">
-      <h1>How active are you?</h1>
+      <div className="question-wrapper">
+        <div className="question-input">
+          <h1>How active are you?</h1>
+        </div>
+        <div className="question-text">
+          <p>
+            A description of what classes as sedentary, activity, and so on.
+            Note for the lads I'm not sure stepcount is the best metric as id
+            guess the majority of people don't track? abstract might encourage
+            more submissions
+          </p>
+        </div>
+      </div>
       <ul className="question-options">
-        <li className="question-option" data-activity="1.15" onClick={clickHandler}>
+        <li
+          className="question-option"
+          data-activity="1.15"
+          onClick={clickHandler}
+        >
           Sedentary
         </li>
-        <li className="question-option" data-activity="1.4" onClick={clickHandler}>
-         Light activity
+        <li
+          className="question-option"
+          data-activity="1.4"
+          onClick={clickHandler}
+        >
+          Light activity
         </li>
-        <li className="question-option" data-activity="1.6" onClick={clickHandler}>
+        <li
+          className="question-option"
+          data-activity="1.6"
+          onClick={clickHandler}
+        >
           Moderate activity
         </li>
-        <li className="question-option" data-activity="1.8" onClick={clickHandler}>
+        <li
+          className="question-option"
+          data-activity="1.8"
+          onClick={clickHandler}
+        >
           Highly active
         </li>
       </ul>
-      </div>
-      <div className="question-text">
-        <p>
-          A description of what classes as sedentary, activity, and so on. Note for the lads I'm not sure stepcount is the best metric as id guess the majority of people don't track? abstract might encourage more submissions
-        </p>
-      </div>
     </>
   );
 }

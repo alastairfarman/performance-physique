@@ -1,7 +1,7 @@
 export default function Title() {
   return (
     <>
-      <section className="section dark medium">
+      <section className="section dark medium" style={{'paddingTop':'10rem'}}>
         <h1>The <em>Weekly</em> Calorie Defecit</h1>
         <p>
           A method for calculating your calories across the week, giving you the
