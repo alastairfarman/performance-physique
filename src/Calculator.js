@@ -77,7 +77,7 @@ export default function Calculator() {
   function minimise() {
     console.log("minimising");
     calcWrapper.current.style.width = "calc(100vw - 2rem)";
-    calcWrapper.current.style.height = "9rem";
+    calcWrapper.current.style.height = "fit-content";
     console.log(calcWrapper.current.style.height);
     calcWrapper.current.style.overflow = "hidden";
     calcContainer.current.childNodes[2].style.display = "none";

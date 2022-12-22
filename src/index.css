@@ -412,7 +412,7 @@ button {
     rgb(56, 180, 128),
     var(--yellow)
   );
-  transition: all 0.5s ease-in;
+  transition: all 0.8s ease-in;
 }
 
 /*animated graph*/
