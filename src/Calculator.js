@@ -48,25 +48,21 @@ export default function Calculator() {
   const calcWrapper = useRef();
   const calcContainer = useRef();
   const calcNav = useRef();
+  const navButtons = document.getElementsByClassName("nav-button");
+  const progress = useRef();
 
   function setInactiveNavState() {
     calcNav.current.style.display = "none";
-    calcWrapper.current.style.removeProperty("margin");
-    calcWrapper.current.style.removeProperty("width");
-    calcWrapper.current.style.removeProperty("height");
-    calcWrapper.current.style.removeProperty("border-radius");
+    calcWrapper.current.classList.remove("nav-active");
     calcContainer.current.style.removeProperty("display");
     calcContainer.current.style.removeProperty("height");
   }
 
   function setActiveNavState() {
     calcNav.current.style.display = "flex";
-    calcWrapper.current.style.margin = "5rem";
-    calcWrapper.current.style.width = "calc(100vw - 10rem)";
-    calcWrapper.current.style.height = "calc(100vh - 10rem)";
-    calcWrapper.current.style.borderRadius = "50px";
+    calcWrapper.current.classList.add("nav-active");
     calcContainer.current.style.display = "grid";
-    calcContainer.current.style.height = "100%";
+    calcContainer.current.style.height = "calc(100% - 2rem)";
   }
 
   //minimise calculator functionality//
@@ -75,51 +71,62 @@ export default function Calculator() {
   const [calcPage, setcalcPage] = useState(1);
 
   function minimise() {
-    console.log("minimising");
-    calcWrapper.current.style.width = "calc(100vw - 2rem)";
-    calcWrapper.current.style.height = "fit-content";
-    console.log(calcWrapper.current.style.height);
-    calcWrapper.current.style.overflow = "hidden";
     calcContainer.current.childNodes[2].style.display = "none";
     calcContainer.current.childNodes[3].style.display = "none";
-    calcWrapper.current.style.margin = "1rem";
+    calcContainer.current.style.gridTemplateRows = "1fr auto";
+    calcWrapper.current.classList.add("minimised");
+    for (let i = 0; i < navButtons.length; i++) {
+      navButtons[i].style.pointerEvents = "none";
+      navButtons[i].style.backgroundColor = "rgba(255,255,255,0.1)";
+    }
+    progress.current.style.width = "50vw";
+    progress.current.style.maxWidth = "450px";
+    progress.current.style.top = "4rem";
+
     setMinimised(true);
   }
 
   function maximise() {
-    console.log("maximising");
-    calcWrapper.current.style.width = "calc(100vw - 10rem)";
-    calcWrapper.current.style.height = "calc(100vh - 10rem)";
-    calcWrapper.current.style.removeProperty("overflow");
+    calcWrapper.current.classList.remove("minimised");
     calcContainer.current.childNodes[2].style.removeProperty("display");
     calcContainer.current.childNodes[3].style.removeProperty("display");
-    calcWrapper.current.style.margin = "5rem";
+    calcContainer.current.style.removeProperty("grid-template-rows");
+    for (let i = 0; i < navButtons.length; i++) {
+      navButtons[i].style.removeProperty("pointer-events");
+      navButtons[i].style.removeProperty("background-color");
+    }
+
+    progress.current.style.removeProperty("top");
+    progress.current.style.removeProperty("width");
+    progress.current.style.removeProperty("max-width");
+
     setMinimised(false);
   }
 
   function minButton() {
     return (
-      <div className="nav-button" onClick={minimise}>
+      <div className="min-button" onClick={minimise}>
         <RemoveIcon />
       </div>
     );
   }
   function maxButton() {
     return (
-      <div className="nav-button" onClick={maximise}>
+      <div className="min-button" onClick={maximise}>
         <AddIcon />
       </div>
     );
   }
 
-  console.log(calcPage);
-  console.log(percentage());
   function progressBar() {
     if (calcPage !== 1) {
       return (
-        <div id="progress-bar">
-          <div id="progress" style={{ width: percentage() }}></div>
-        </div>
+        <>
+          <div className="spacer"></div>
+          <div id="progress-bar" ref={progress}>
+            <div id="progress" style={{ width: percentage() }}></div>
+          </div>
+        </>
       );
     }
   }
@@ -143,8 +150,12 @@ export default function Calculator() {
 
   return (
     <>
-      <div ref={calcWrapper} id="calculator-wrapper">
-        <div ref={calcContainer} id="calc-container">
+      <div
+        ref={calcWrapper}
+        id="calculator-wrapper"
+        className="calculator-wrapper"
+      >
+        <div ref={calcContainer} id="calc-container" className="calc-container">
           <img id="logo" src="PP-LOGO-LOCKUP_WHITE.png" alt="" />
           <div ref={calcNav} id="calc-nav">
             {minimised ? maxButton() : minButton()}

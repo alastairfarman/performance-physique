@@ -44,16 +44,16 @@ export default function Weight(props) {
       <div className="question-options">
         <div id="weight-select-container">
           <form id="weight" onSubmit={clickHandler}>
-            <select name="weightSelect" id="weightType">
-              <option value="K">Kilograms</option>
-              <option value="lb">Pounds</option>
-            </select>
             <input
               type="number"
               id="weightValue"
               defaultValue="70"
               step=".1"
             ></input>
+            <select name="weightSelect" id="weightType">
+              <option value="K">Kilograms</option>
+              <option value="lb">Pounds</option>
+            </select>
           </form>
           <button type="submit" style={{ all: "unset" }} form="weight">
             <li className="question-option">Next</li>

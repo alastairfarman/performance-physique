@@ -39,8 +39,7 @@ export default function TestimonialCarousel() {
   return (
     <>
       <section className="dark" id="carousel" style={{ overflow: "hidden" }}>
-        <div className="testimonial-card">
-          {/* Initial card on load */}
+        {/* <div className="testimonial-card">
           <p>
             I have tried all the fad diets going, you name it I have tried it,
             and this is the first one which is $extremely simple and effective.
@@ -48,7 +47,7 @@ export default function TestimonialCarousel() {
             wish everyone had access to this amazing programme!
           </p>
           <p>Emily</p>
-        </div>
+        </div> */}
       </section>
     </>
   );
