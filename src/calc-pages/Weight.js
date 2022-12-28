@@ -6,8 +6,8 @@ export default function Weight(props) {
 
   function clickHandler(e) {
     e.preventDefault();
-    let weight = parseFloat(e.target.lastChild.value);
-    const weightType = e.target.firstChild.value;
+    let weight = parseFloat(e.target.firstChild.value);
+    const weightType = e.target.lastChild.value;
 
     if (weightType === "lb") {
       weight = parseInt(weight / 2.2046);
