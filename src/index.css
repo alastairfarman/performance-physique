@@ -10,6 +10,8 @@
   margin: 0;
   list-style: none;
   font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+
 }
 
 #root {
