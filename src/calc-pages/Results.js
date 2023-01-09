@@ -1,4 +1,3 @@
-import Graph from "./Graph";
 import { useState } from "react";
 import axios from "axios";
 
