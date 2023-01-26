@@ -1,13 +1,29 @@
-export default function What() {
+export default function How(props) {
+
+  function clickHandler(){
+    props.openCalc()
+}
   return (
     <>
-      <section className="section light medium">
-        <h1>How does it work? </h1>
-        <p>
-          Unlike traditional diets, we calculate your necessary weekly calorie
-          deficit. This means you can break up your week to suit your lifestyle,
-          social occassions and simply days when you’re a little hungrier!
-        </p>
+      <section className="section dark large flex-direction-override">
+        <h1>
+          <em>How</em> to use your deficit
+        </h1>
+        <div className="bullet-container how">
+          <div><span className="number">1</span>
+            <span onClick={clickHandler}>Calculate</span> how many calories you need to consume over a week to lose
+            weight
+          </div>
+          <div><span className="number">2</span>
+            Plan how many calories you can consume each day to be in a total
+            calorie deficit by the end of the week
+          </div>
+          <div><span className="number">3</span>
+            Choose which days you might consume more calories, like the weekend
+          </div>
+          <div><span className="number">4</span>
+            Track your calories over the week</div>
+        </div>
       </section>
     </>
   );

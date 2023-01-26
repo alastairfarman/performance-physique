@@ -1,12 +1,25 @@
+import Stats from "./Stats";
+
 export default function Title() {
   return (
     <>
-      <section className="section dark medium" style={{'paddingTop':'10rem'}}>
-        <h1>The <em>Weekly</em> Calorie Defecit</h1>
+    <div className="top-spacer"></div>
+      <section className="section dark medium">
+        <div className="title-container">
+        <h1>
+          The <em>Weekly</em> Calorie Deficit
+        </h1>
         <p>
-          A method for calculating your calories across the week, giving you the
-          freedom to eat the food you love and lose weight at the same time.
+          A method for calculating your calories across the week, helping you
+          plan the calories you consume to lose weight without being
+          uneccessarily restrictive.
+          <br />
+          <br />
+          Click Calculate now and we'll give you everything you need to lose
+          weight with the freedom to eat the food you love!
         </p>
+        </div>
+        <Stats/>
       </section>
     </>
   );

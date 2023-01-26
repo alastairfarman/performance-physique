@@ -18,11 +18,10 @@ export default function Weight(props) {
     nav("../Activity");
   }
 
-  props.setcalcPage(3);
-
   useEffect(() => {
     if (props.minimised === false) {
       props.setActiveNavState();
+      props.setcalcPage(3);
     }
   });
 
@@ -34,10 +33,9 @@ export default function Weight(props) {
         </div>
         <div className="question-text">
           <p>
-            This is how heavy you are. If you stand on a scale this will be the
-            number it shows you. If you don't know this, go find a scale to
-            stand on as it is needed to calculate how much weight you can lose.
-            Alternatively ask a friend to guess how heavy you are.
+            This is your body mas when your step on scales. We'll use this
+            number to work out just how many calories you need to succeed. This
+            number doesn't define you!
           </p>
         </div>
       </div>

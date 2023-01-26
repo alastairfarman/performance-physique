@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
-const FORMSPARK_FORM_ID = "FUX0nqmK";
+// const FORMSPARK_FORM_ID = "FUX0nqmK";  //  ALI //
+const FORMSPARK_FORM_ID = "odG1JqtU"; //  ARJ //
+
 const formSparkUrl = `https://submit-form.com/${FORMSPARK_FORM_ID}`;
 
 export default function Results(props) {
+  const nav = useNavigate();
+
   const submitForm = async (e) => {
+    nav("../Finish");
+
     e.preventDefault();
     await postSubmission();
   };
@@ -33,20 +41,15 @@ export default function Results(props) {
 
   console.log("formState:", formState);
 
-  props.setcalcPage(5);
+  useEffect(() => props.setcalcPage(5));
 
   return (
     <>
       <div className="question-wrapper" id="results-and-submit-container">
-        <h3>Find out your results and send to recieve plan</h3>
-        {/* <div id="graph">
-          <div id="data-summary">
-            <p>{props.answers.sex}</p>
-            <p>{props.answers.weight}</p>
-            <p>{props.answers.activity}</p>
-          </div>
-          <Graph answers={props.answers} />
-        </div> */}
+        <h3>
+          Enter your name and email address and we'll send your weekly deficit
+          and how to use it to lose weight
+        </h3>
       </div>
       <div id="form-wrapper">
         <form onSubmit={submitForm} action="https://submit-form.com/echo">
@@ -75,7 +78,9 @@ export default function Results(props) {
               }))
             }
           />
-          <button type="submit">Take my money</button>
+          <button type="submit" style={{ all: "unset" }}>
+            <li className="question-option">Get your result!</li>
+          </button>
         </form>
       </div>
     </>

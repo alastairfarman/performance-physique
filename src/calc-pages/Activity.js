@@ -13,11 +13,10 @@ export default function Activity(props) {
     nav("../Results");
   }
 
-  props.setcalcPage(4);
-
   useEffect(() => {
     if (props.minimised === false) {
       props.setActiveNavState();
+      props.setcalcPage(4);
     }
   });
 
@@ -29,10 +28,8 @@ export default function Activity(props) {
         </div>
         <div className="question-text">
           <p>
-            A description of what classes as sedentary, activity, and so on.
-            Note for the lads I'm not sure stepcount is the best metric as id
-            guess the majority of people don't track? abstract might encourage
-            more submissions
+            This is how much you move around during the day, not including
+            exercise.
           </p>
         </div>
       </div>

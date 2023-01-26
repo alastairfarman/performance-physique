@@ -10,12 +10,12 @@ export default function Sex(props) {
     nav("../Weight");
   }
 
-  props.setcalcPage(2);
-
   useEffect(() => {
     if (props.minimised === false) {
       props.setActiveNavState();
     }
+
+    props.setcalcPage(2);
   });
 
   return (
@@ -28,11 +28,9 @@ export default function Sex(props) {
         </div>
         <div className="question-text">
           <p>
-            We need to know this because. this is not the same as your gender We
-            need to know this because. this is not the same as your gender We
-            need to know this because. this is not the same as your gender We
-            need to know this because. this is not the same as your gender We
-            need to know this because. this is not the same as your gender
+            Our sex impacts our metabolic rate and how many calories you need to
+            consume to achieve your goals. This doesn't affect the gender you
+            identify as.
           </p>
         </div>
       </div>

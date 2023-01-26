@@ -9,13 +9,20 @@ export default function TestimonialCarousel() {
     const container = document.getElementById("carousel");
     const card = document.createElement("div");
     const quote = document.createElement("p");
+    const nameImage = document.createElement("div")
     const name = document.createElement("p");
+    const img = document.createElement("img");
     quote.textContent = data.testimonials[count].quote;
     name.textContent = data.testimonials[count].name;
+    img.src = data.testimonials[count]["img-filename"];
 
+    img.setAttribute("class", "testimonial-img");
     card.setAttribute("class", "testimonial-card");
     card.appendChild(quote);
-    card.appendChild(name);
+    card.appendChild(nameImage)
+    nameImage.setAttribute("class","name-image")
+    nameImage.appendChild(name);
+    nameImage.appendChild(img);
 
     container.appendChild(card);
 
@@ -38,17 +45,11 @@ export default function TestimonialCarousel() {
 
   return (
     <>
-      <section className="dark" id="carousel" style={{ overflow: "hidden" }}>
-        {/* <div className="testimonial-card">
-          <p>
-            I have tried all the fad diets going, you name it I have tried it,
-            and this is the first one which is $extremely simple and effective.
-            Not only have i lost weight but I feel like a different person... I
-            wish everyone had access to this amazing programme!
-          </p>
-          <p>Emily</p>
-        </div> */}
-      </section>
+      <section
+        className="light"
+        id="carousel"
+        style={{ overflow: "hidden" }}
+      ></section>
     </>
   );
 }

@@ -8,14 +8,15 @@ export default function Start(props) {
     nav("../Sex");
   }
 
-  props.setcalcPage(1);
-
-  useEffect(() => props.setInactiveNavState());
+  useEffect(() => {
+    props.setcalcPage(1);
+    props.setInactiveNavState();
+  });
 
   return (
     <>
       <button className="CTA-button" onClick={clickHandler}>
-        <h1>Calculate yours now!</h1>
+        <h2>Calculate yours</h2>
       </button>
     </>
   );

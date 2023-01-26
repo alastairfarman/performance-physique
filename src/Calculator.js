@@ -5,6 +5,7 @@ import Sex from "./calc-pages/Sex";
 import Results from "./calc-pages/Results";
 import Activity from "./calc-pages/Activity";
 import Start from "./calc-pages/Start";
+import Finish from "./calc-pages/Finish";
 import { calculateBMR, calculateDEE } from "./algo";
 
 import AddIcon from "@mui/icons-material/Add";
@@ -12,7 +13,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-export default function Calculator() {
+export default function Calculator(props) {
   //initialise answers object//
 
   const [answers, setAnswers] = useState({
@@ -20,13 +21,6 @@ export default function Calculator() {
     weight: "",
     activity: "",
   });
-
-  //record of inputs and DEE math - temp//
-  console.log(answers);
-  console.log(calculateBMR(answers.weight, answers.sex));
-  console.log(
-    calculateDEE(calculateBMR(answers.weight, answers.sex), answers.activity)
-  );
 
   let DEE = Math.round(
     calculateDEE(calculateBMR(answers.weight, answers.sex), answers.activity)
@@ -52,14 +46,18 @@ export default function Calculator() {
   const progress = useRef();
 
   function setInactiveNavState() {
-    calcNav.current.style.display = "none";
+    calcNav.current.style.opacity = "0%";
+    calcNav.current.style.width = "0%";
+    calcNav.current.style.padding = "0rem";
     calcWrapper.current.classList.remove("nav-active");
     calcContainer.current.style.removeProperty("display");
     calcContainer.current.style.removeProperty("height");
   }
 
   function setActiveNavState() {
-    calcNav.current.style.display = "flex";
+    calcNav.current.style.opacity = "100%";
+    calcNav.current.style.width = "auto";
+    calcNav.current.style.padding = "1rem 1rem 1rem 0rem";
     calcWrapper.current.classList.add("nav-active");
     calcContainer.current.style.display = "grid";
     calcContainer.current.style.height = "calc(100% - 2rem)";
@@ -79,9 +77,9 @@ export default function Calculator() {
       navButtons[i].style.pointerEvents = "none";
       navButtons[i].style.backgroundColor = "rgba(255,255,255,0.1)";
     }
-    progress.current.style.width = "50vw";
-    progress.current.style.maxWidth = "450px";
-    progress.current.style.top = "4rem";
+    progress.current.style.width = "50%";
+    progress.current.style.right = "0%";
+    progress.current.style.top = "6.5rem";
 
     setMinimised(true);
   }
@@ -98,7 +96,7 @@ export default function Calculator() {
 
     progress.current.style.removeProperty("top");
     progress.current.style.removeProperty("width");
-    progress.current.style.removeProperty("max-width");
+    progress.current.style.removeProperty("left");
 
     setMinimised(false);
   }
@@ -112,7 +110,8 @@ export default function Calculator() {
   }
   function maxButton() {
     return (
-      <div className="min-button" onClick={maximise}>
+      <div className="max-button" onClick={maximise}>
+        Continue
         <AddIcon />
       </div>
     );
@@ -143,6 +142,8 @@ export default function Calculator() {
         return "60%";
       case 5:
         return "80%";
+      case 6:
+        return "100%";
       default:
         break;
     }
@@ -159,11 +160,13 @@ export default function Calculator() {
           <img id="logo" src="PP-LOGO-LOCKUP_WHITE.png" alt="" />
           <div ref={calcNav} id="calc-nav">
             {minimised ? maxButton() : minButton()}
-            <div className="nav-button" onClick={clickBack}>
-              <ChevronLeftIcon />
-            </div>
-            <div className="nav-button" onClick={clickFwd}>
-              <ChevronRightIcon />
+            <div className="fwd-bk">
+              <div className="nav-button" onClick={clickBack}>
+                <ChevronLeftIcon />
+              </div>
+              <div className="nav-button" onClick={clickFwd}>
+                <ChevronRightIcon />
+              </div>
             </div>
           </div>
           <Routes>
@@ -218,6 +221,16 @@ export default function Calculator() {
                 <Results
                   DEE={DEE}
                   answers={answers}
+                  setActiveNavState={setActiveNavState}
+                  minimised={minimised}
+                  setcalcPage={setcalcPage}
+                />
+              }
+            />
+            <Route
+              path="Finish"
+              element={
+                <Finish
                   setActiveNavState={setActiveNavState}
                   minimised={minimised}
                   setcalcPage={setcalcPage}
