@@ -27,10 +27,7 @@ export default function Activity(props) {
           <h1>How active are you?</h1>
         </div>
         <div className="question-text">
-          <p>
-            This is how much you move around during the day, not including
-            exercise.
-          </p>
+          <p>This doesn't include exercise.</p>
         </div>
       </div>
       <ul className="question-options">
@@ -39,29 +36,39 @@ export default function Activity(props) {
           data-activity="1.15"
           onClick={clickHandler}
         >
-          Sedentary
+          1
         </li>
+        <span className="q-desc">
+          You work in an office, school or other stationary job and move less
+          than 5000 steps per day.
+        </span>
         <li
           className="question-option"
           data-activity="1.4"
           onClick={clickHandler}
         >
-          Light activity
-        </li>
+          2
+        </li><span className="q-desc">
+        Light activity, some of the day standing or walking, more than in a classroom. Over 8,000 steps per day.
+        </span>
         <li
           className="question-option"
           data-activity="1.6"
           onClick={clickHandler}
         >
-          Moderate activity
-        </li>
+          3
+        </li><span className="q-desc">
+        Moderate activity levels, on feet most of day, street sales person covering more than 10,000 steps per day.
+        </span>
         <li
           className="question-option"
           data-activity="1.8"
           onClick={clickHandler}
         >
-          Highly active
-        </li>
+          4
+        </li><span className="q-desc">
+        Hard daily activity e.g. working 12 hours on a building site performing manual labour and over 12,000 steps minimum.
+        </span>
       </ul>
     </>
   );

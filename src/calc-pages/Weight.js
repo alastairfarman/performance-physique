@@ -10,8 +10,7 @@ export default function Weight(props) {
     const weightType = e.target.lastChild.value;
 
     if (weightType === "lb") {
-      weight = parseInt(weight / 2.2046);
-    } else {
+      weight = parseInt(weight * 2.2046);
     }
 
     props.setAnswers((prevState) => ({ ...prevState, weight: weight }));
@@ -33,7 +32,7 @@ export default function Weight(props) {
         </div>
         <div className="question-text">
           <p>
-            This is your body mas when your step on scales. We'll use this
+            This is your body mass when your step on scales. We'll use this
             number to work out just how many calories you need to succeed. This
             number doesn't define you!
           </p>

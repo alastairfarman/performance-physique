@@ -9,7 +9,7 @@ export default function TestimonialCarousel() {
     const container = document.getElementById("carousel");
     const card = document.createElement("div");
     const quote = document.createElement("p");
-    const nameImage = document.createElement("div")
+    const nameImage = document.createElement("div");
     const name = document.createElement("p");
     const img = document.createElement("img");
     quote.textContent = data.testimonials[count].quote;
@@ -19,8 +19,8 @@ export default function TestimonialCarousel() {
     img.setAttribute("class", "testimonial-img");
     card.setAttribute("class", "testimonial-card");
     card.appendChild(quote);
-    card.appendChild(nameImage)
-    nameImage.setAttribute("class","name-image")
+    card.appendChild(nameImage);
+    nameImage.setAttribute("class", "name-image");
     nameImage.appendChild(name);
     nameImage.appendChild(img);
 
@@ -29,7 +29,6 @@ export default function TestimonialCarousel() {
     /* Time card persists on carousel */
     setTimeout(function () {
       container.firstChild.remove();
-      console.log("removed");
     }, 50000);
 
     /* loop back to first data entry */
@@ -38,6 +37,7 @@ export default function TestimonialCarousel() {
 
   useEffect(() => {
     /* how long before new card added - gap function */
+
     const interval = setInterval(() => action(data), 5300);
 
     return () => clearInterval(interval);
@@ -45,11 +45,12 @@ export default function TestimonialCarousel() {
 
   return (
     <>
-      <section
-        className="light"
-        id="carousel"
-        style={{ overflow: "hidden" }}
-      ></section>
+      <section className="dark" id="carousel" style={{ overflow: "hidden" }}>
+        <h1 id="arrow">
+          &#10096; &#10096; &#10096; &#10096; &#10096; &#10096; testimonials
+          &#10096; &#10096; &#10096; &#10096; &#10096; &#10096; testimonials
+        </h1>
+      </section>
     </>
   );
 }

@@ -1,11 +1,11 @@
 export default function Summation() {
   return (
     <>
-      <section className="section dark large">
+      <section className="section light large">
         <div className="footer">
         <h3>
           The Weekly Calorie Deficit is the foundation of our successful online
-          weight-loss programme, '4 Weeks 4 Kilos'.
+          weight-loss programme, '4 Weeks 4 Kilos'
         </h3>
         <h3> Our programme combines
           nutritional science, physiology, behaviour psychology with

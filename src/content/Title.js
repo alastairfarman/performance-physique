@@ -15,7 +15,7 @@ export default function Title() {
           uneccessarily restrictive.
           <br />
           <br />
-          Click Calculate now and we'll give you everything you need to lose
+          'Calculate yours' now and we'll give you everything you need to lose
           weight with the freedom to eat the food you love!
         </p>
         </div>

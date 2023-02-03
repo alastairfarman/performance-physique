@@ -121,7 +121,6 @@ export default function Calculator(props) {
     if (calcPage !== 1) {
       return (
         <>
-          <div className="spacer"></div>
           <div id="progress-bar" ref={progress}>
             <div id="progress" style={{ width: percentage() }}></div>
           </div>
@@ -231,6 +230,8 @@ export default function Calculator(props) {
               path="Finish"
               element={
                 <Finish
+                  DEE={DEE}
+                  answers={answers}
                   setActiveNavState={setActiveNavState}
                   minimised={minimised}
                   setcalcPage={setcalcPage}

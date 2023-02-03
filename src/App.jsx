@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Calculator from './Calculator';
 import TestimonialCarousel from './content/TestimonialCarousel';
 import Title from './content/Title';
 import What from './content/What';
+import Quote from './content/Quote';
 import How from './content/How'
 import Summation from './content/Summation'
 
 function App() {
-
 
 
 //content load on scroll//
@@ -45,6 +45,7 @@ useEffect(()=> {
     <Calculator  />
     <Title/>
     <What />
+    <Quote/>
     <How />
     <TestimonialCarousel />
     <Summation />
