@@ -3,11 +3,10 @@
 :root {
   --blue: #00bdee;
   --lightblue: #6be1fe;
-  /* --yellow: #ffff26; */
   --yellow: #ffff30;
   --greyblue: rgb(0, 45, 56);
   --darkgrey: #0d1d22;
-  --black: #000000;
+  --black: #0c0c0c;
   --white: #ffffff;
   --lightgrey: #f6f7f8;
   --midlightgrey: #f1f2f3;
@@ -285,11 +284,11 @@
 .question-input {
   display: flex;
   width: 100%;
-  padding: 2rem;
+  padding: 0rem;
 }
 
 .question-text {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   width: 100%;
 }
 .question-wrapper {
@@ -303,14 +302,13 @@
   grid-column-end: 3;
   width: 100%;
   height: 100%;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   padding-left: 0;
   animation: fadein 1s ease-in-out 0.6s both;
 }
 
 .question-option {
-  place-self: center;
   display: flex;
   cursor: pointer;
   justify-content: center;
@@ -332,6 +330,10 @@
   transition: background-position 1s, color 0.5s, box-shadow 0.5s;
 }
 
+
+
+
+
 .calculator-wrapper {
   display: flex;
   justify-content: space-between;
@@ -344,7 +346,7 @@
   width: 100dvw;
   width: 100vw;
   min-width: 350px;
-  height: 160px;
+  height: 8rem;
   position: fixed;
   top: 0;
   z-index: 2;
@@ -421,10 +423,9 @@
 #weight-select-container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  margin: 1rem;
 }
 
 #weight {
@@ -588,9 +589,19 @@
   grid-column-end: 3;
 }
 
+.q-cont{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .q-desc {
+  width: 150px;
+  height: 150px;
   font-size: 0.7rem;
-  place-self: center;
+  padding: 1rem;
 }
 
 /* mobile */
@@ -664,8 +675,9 @@
   }
 
   .question-options {
-    display: grid;
-    grid-template-rows: auto repeat(3, auto);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
   }
 
   .result-container {
@@ -678,6 +690,14 @@
 
   .result-container p {
     font-size: 0.8rem;
+  }
+
+  .q-cont{
+    flex-direction: row;
+  }
+  .q-desc{
+    font-size: 10px;
+    height: 100px;
   }
 }
 

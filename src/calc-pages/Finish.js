@@ -7,8 +7,12 @@ export default function Finish(props) {
 
   return (
     <>
+    <div className="question-wrapper">
+    <div className="question-input">
+          <h1>Your results!</h1>
+        </div>
+      </div>
       <div className="result-container">
-        <h1>Your Results!</h1>
         <p>
           To lose weight your weekly calorie deficit should be 3500 calories.
           This means that over a week you should aim for a total of{" "}

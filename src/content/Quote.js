@@ -3,7 +3,7 @@ export default function Quote(props) {
     <>
       <section
         className="section dark small"
-        style={{ "flex-direction": "row" }}
+        style={{ "flexDirection": "row" }}
       >
         <div className="quote-container">
           <h4>
