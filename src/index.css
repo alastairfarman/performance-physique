@@ -330,10 +330,6 @@
   transition: background-position 1s, color 0.5s, box-shadow 0.5s;
 }
 
-
-
-
-
 .calculator-wrapper {
   display: flex;
   justify-content: space-between;
@@ -680,6 +676,10 @@
     justify-content: flex-end;
   }
 
+  .q-cont .question-option{
+    width: 100px;
+  }
+
   .result-container {
     grid-column-start: 1;
     grid-column-end: -1;
@@ -698,6 +698,7 @@
   .q-desc{
     font-size: 10px;
     height: 100px;
+    width: 200px;
   }
 }
 

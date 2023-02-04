@@ -51,7 +51,7 @@ export default function Stats() {
               <NumberDecimal n={10} />
               <span className="unit">cm</span>
             </h1>
-            <p className="number-title">average cms lost from waist</p>
+            <p className="number-title">lost from waistlines on average</p>
           </div>
         </div>
       
