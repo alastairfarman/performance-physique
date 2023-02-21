@@ -14,7 +14,7 @@ export default function TestimonialCarousel() {
     const img = document.createElement("img");
     quote.textContent = data.testimonials[count].quote;
     name.textContent = data.testimonials[count].name;
-    img.src = data.testimonials[count]["img-filename"];
+    img.src = `/testimonial-images/${data.testimonials[count]["img-filename"]}`;
 
     img.setAttribute("class", "testimonial-img");
     card.setAttribute("class", "testimonial-card");
@@ -32,7 +32,7 @@ export default function TestimonialCarousel() {
     }, 50000);
 
     /* loop back to first data entry */
-    count === 2 ? setCount(0) : setCount(count + 1);
+    count === data.testimonials.length - 1 ? setCount(0) : setCount(count + 1);
   }, [count]);
 
   useEffect(() => {

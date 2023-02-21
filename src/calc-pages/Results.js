@@ -6,7 +6,9 @@ import axios from "axios";
 // const FORMSPARK_FORM_ID = "FUX0nqmK";  //  ALI //
 const FORMSPARK_FORM_ID = "odG1JqtU"; //  ARJ //
 
-const formSparkUrl = `https://submit-form.com/${FORMSPARK_FORM_ID}`;
+// const formSparkUrl = `https://submit-form.com/${FORMSPARK_FORM_ID}`;
+
+const formSparkUrl = null
 
 export default function Results(props) {
   const nav = useNavigate();
