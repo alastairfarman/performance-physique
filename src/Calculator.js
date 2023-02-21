@@ -235,6 +235,7 @@ export default function Calculator(props) {
                   setActiveNavState={setActiveNavState}
                   minimised={minimised}
                   setcalcPage={setcalcPage}
+                  nav={nav}
                 />
               }
             />

@@ -3,12 +3,9 @@ import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 
-// const FORMSPARK_FORM_ID = "FUX0nqmK";  //  ALI //
 const FORMSPARK_FORM_ID = "odG1JqtU"; //  ARJ //
 
-// const formSparkUrl = `https://submit-form.com/${FORMSPARK_FORM_ID}`;
-
-const formSparkUrl = null
+const formSparkUrl = `https://submit-form.com/${FORMSPARK_FORM_ID}`;
 
 export default function Results(props) {
   const nav = useNavigate();
@@ -37,6 +34,10 @@ export default function Results(props) {
     sex: props.answers.sex,
     weight: props.answers.weight,
     activity: props.answers.activity,
+    xdataDEE: props.DEE,
+    xdataWEE: props.DEE * 7,
+    xdataDailyDeficit: props.DEE - 500,
+    xdataWeeklyDeficit: props.DEE * 7 - 500,
   };
 
   const [formState, setFormState] = useState(initialFormState);
