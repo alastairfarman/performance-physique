@@ -37,7 +37,7 @@ export default function Results(props) {
     xdataDEE: props.DEE,
     xdataWEE: props.DEE * 7,
     xdataDailyDeficit: props.DEE - 500,
-    xdataWeeklyDeficit: props.DEE * 7 - 500,
+    xdataWeeklyDeficit: props.DEE * 7 - 3500,
   };
 
   const [formState, setFormState] = useState(initialFormState);
