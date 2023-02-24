@@ -21,7 +21,7 @@ export default function Quote(props) {
             Arjuna Thiruchelvam - Owner & Head Coach at Performance Physique
           </h5>
         </div>
-        <img className="quote-img" src="arj.png" alt="" />
+        <img className="quote-img" src="arj2.jpg" alt="" />
       </section>
     </>
   );

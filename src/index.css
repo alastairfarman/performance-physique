@@ -61,10 +61,10 @@
 
 .section p {
   margin: 1.5rem;
-  max-width: 500px;
 }
 
 .section {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -83,12 +83,17 @@
 }
 
 .title-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   min-height: 500px;
-  max-width: 800px;
+  max-width: 1000px;
 }
 .title-container h1 {
   text-align: end;
+}
+
+#cake {
+  width: 100%;
 }
 
 #logo {
@@ -183,6 +188,23 @@
   top: 0;
   right: -500px;
   animation: carousel 35s linear 0s;
+}
+
+.testimonial-card > p::before {
+  content: open-quote;
+  font-size: 8rem;
+  color: var(--lightblue);
+  position: absolute;
+  top: -2rem;
+  left: 1rem;
+}
+.testimonial-card > p::after {
+  content: close-quote;
+  font-size: 8rem;
+  color: var(--lightblue);
+  position: absolute;
+  right: 1rem;
+  translate: 0 -2rem;
 }
 
 .testimonial-card:hover {
@@ -706,7 +728,9 @@
     width: 200px;
   }
 
-  .small {flex-direction: column;}
+  .small {
+    flex-direction: column;
+  }
 }
 
 /* section animation */
